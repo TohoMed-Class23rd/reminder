@@ -8,7 +8,7 @@ function remind() {
   upNextSheet.getRange(2,2,upNextSheet.getLastRow()-1).setNumberFormat("yyyy/MM/dd HH:mm");
   upNextSheet.getRange(2,2,upNextSheet.getLastRow()-1,upNextSheet.getLastColumn()-1).sort({column: 2, ascending: true});
   let now = new Date();
-  var content = '\n';
+  var content = '';
 
   if (switchstatus) {
     for (let i = 2; i <= Math.min(upNextSheet.getLastRow(), 11); i++){
@@ -19,14 +19,12 @@ function remind() {
         // 未来
         if(start_date <= now || start_date == "Invalid Date"){
           //掲載開始日以降
+            content += '\n'
           if (values[2] == '期限'){
             content += `・${values[3]} ${dateToString()}まで`;
           } else if(values[2] == 'イベント'){
             content += `・${dateToString()}、${values[3]}`;
           };
-          if (i != upNextSheet.getLastRow()){
-            content += '\n'
-          }
 
           function dateToString(){
             function relativeDate(input){
