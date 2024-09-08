@@ -19,6 +19,7 @@ function remind() {
         // 未来
         if(start_date <= now || start_date == "Invalid Date"){
           //掲載開始日以降
+          upNextSheet.getRange(i,1).clear();
             content += '\n'
           if (values[2] == '期限'){
             content += `・${values[3]} ${dateToString()}まで`;
