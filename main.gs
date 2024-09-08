@@ -6,7 +6,7 @@ function remind() {
   let switchstatus = switchsheet.getRange(1,2).getValue();
   upNextSheet.getRange(2,1,upNextSheet.getLastRow()-1).setNumberFormat("yyyy/MM/dd HH:mm");
   upNextSheet.getRange(2,2,upNextSheet.getLastRow()-1).setNumberFormat("yyyy/MM/dd HH:mm");
-  upNextSheet.getRange(2,2,upNextSheet.getLastRow()-1,upNextSheet.getLastColumn()-1).sort({column: 2, ascending: true});
+  upNextSheet.getRange(2,1,upNextSheet.getLastRow()-1,upNextSheet.getLastColumn()).sort({column: 2, ascending: true});
   let now = new Date();
   var content = '';
 
